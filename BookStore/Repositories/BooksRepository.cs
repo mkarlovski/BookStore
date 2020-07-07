@@ -42,5 +42,11 @@ namespace BookStore.Repositories
         {
             return context.Books.FirstOrDefault(x => x.Id == id);
         }
+
+        public void Update(Book book)
+        {
+            context.Books.Update(book);
+            context.SaveChanges();
+        }
     }
 }

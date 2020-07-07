@@ -9,22 +9,23 @@ namespace BookStore.Data
     public class Book
     {
         public int Id { get; set; }
+
         [Required]
         public string Title { get; set; }
-        [Required]
 
+        [Required]
         public string Description { get; set; }
-        [Required]
 
+        [Required]
         public string Author { get; set; }
-        [Required]
 
+        [Required]
         public string Genre { get; set; }
-        [Required]
 
+        [Required]
         public int Quantity { get; set; }
-        [Required]
 
+        [Required]
         public decimal Price { get; set; }
 
     }

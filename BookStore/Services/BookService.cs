@@ -51,7 +51,18 @@ namespace BookStore.Services
         public void Update(BookDto bookDto)
         {
             var book = booksRepository.GetById(bookDto.Id);
+            if (book != null)
+            {
+                book.Title = bookDto.Title;
+                book.Author = bookDto.Author;
+                book.Description = bookDto.Description;
+                book.Price = bookDto.Price;
+                book.Genre = bookDto.Genre;
+                book.Quantity = bookDto.Quantity;
 
+                booksRepository.Update(book);
+
+            }
         }
     }
 }
