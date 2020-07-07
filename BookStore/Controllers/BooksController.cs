@@ -35,7 +35,7 @@ namespace BookStore.Controllers
         public IActionResult Get(string author)
         {
             var books = bookService.GetByAuthor(author);
-            return Ok();
+            return Ok(books);
         }
 
         [HttpPost]
