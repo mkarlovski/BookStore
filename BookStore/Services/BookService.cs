@@ -28,6 +28,7 @@ namespace BookStore.Services
         public void Delete(int id)
         {
             var book = booksRepository.GetById(id);
+
             if (book != null)
             {
                 booksRepository.Delete(book);
