@@ -38,6 +38,14 @@ namespace BookStore.Controllers
             return Ok(books);
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult Get(int id)
+        {
+            var book = bookService.GetById(id);
+            return Ok(book);
+        }
+
         [HttpPost]
         public IActionResult Post(BookDto bookDto)
         {

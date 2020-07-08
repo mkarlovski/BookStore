@@ -48,6 +48,12 @@ namespace BookStore.Services
             
         }
 
+        public BookDto GetById(int id)
+        {
+            var book = booksRepository.GetById(id);
+            return book.ToBookDto();
+        }
+
         public void Update(BookDto bookDto)
         {
             var book = booksRepository.GetById(bookDto.Id);
