@@ -14,5 +14,6 @@ namespace BookStore.Repositories.Interfaces
         List<Book> GetByAuthor(string author);
         void Delete(Book book);
         void Update(Book book);
+        List<Book> GetByIds(List<int> bookIds);
     }
 }

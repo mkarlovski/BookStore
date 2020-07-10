@@ -6,28 +6,22 @@ using System.Threading.Tasks;
 
 namespace BookStore.Data
 {
-    public class Book
+    public class Order
     {
         public int Id { get; set; }
+        [Required]
+        public string OrderCode { get; set; }
 
         [Required]
-        public string Title { get; set; }
-
+        public string Name { get; set; }
         [Required]
-        public string Description { get; set; }
-
+        public string Address { get; set; }
         [Required]
-        public string Author { get; set; }
-
+        public string Phone { get; set; }
         [Required]
-        public string Genre { get; set; }
-
+        public string Email { get; set; }
         [Required]
-        public int Quantity { get; set; }
-
-        [Required]
-        public decimal Price { get; set; }
-
+        public decimal FullPrice { get; set; }
         public List<BookOrders> BookOrders { get; set; }
 
 
