@@ -18,7 +18,8 @@ namespace BookStore.Repositories
 
         public void Create(Order order)
         {
-
+            context.Orders.Add(order);
+            context.SaveChanges();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BookStore.Data;
+using BookStore.Helpers;
 using BookStore.ModelDtos;
 using BookStore.Repositories.Interfaces;
 using BookStore.Services.Interfaces;
@@ -20,7 +21,7 @@ namespace BookStore.Services
             this.bookService = bookService;
         }
 
-        public void Create(CreateOrderDto createOrderDto)
+        public CreateOrderResponse Create(CreateOrderDto createOrderDto)
         {
 
             var books = bookService.GetByIds(createOrderDto.BookIds);
@@ -32,13 +33,18 @@ namespace BookStore.Services
                 Email = createOrderDto.Email,
                 Phone = createOrderDto.Phone,
                 BookOrders = createOrderDto.BookIds.Select(x => new BookOrders {
-                    BookId=x
+                    BookId = x
                 }).ToList(),
-                FullPrice=books.Sum(x=>x.Price),
-                OrderCode="TestCode"
+                FullPrice = books.Sum(x => x.Price),
+                OrderCode = Helper.RandomString(6)
             };
 
             ordersRepository.Create(newOrder);
+
+            var response = new CreateOrderResponse();
+            response.OrderCode = newOrder.OrderCode;
+
+            return response;
         }
     }
 }

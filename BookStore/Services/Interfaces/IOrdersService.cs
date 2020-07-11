@@ -8,6 +8,6 @@ namespace BookStore.Services.Interfaces
 {
     public interface IOrdersService
     {
-        void Create(CreateOrderDto order);
+        CreateOrderResponse Create(CreateOrderDto order);
     }
 }

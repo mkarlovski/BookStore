@@ -24,9 +24,15 @@ namespace BookStore.Controllers
         [HttpPost]
         public IActionResult Create(CreateOrderDto order)
         {
-            ordersService.Create(order);
+            var response=ordersService.Create(order);
 
+            return Ok(response.OrderCode);
+        }
+
+        public IActionResult Get()
+        {
             return Ok();
         }
+
     }
 }
