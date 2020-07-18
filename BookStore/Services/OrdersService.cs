@@ -46,5 +46,12 @@ namespace BookStore.Services
 
             return response;
         }
+
+        public ViewOrderDto GetOrder(string email, string orderCode)
+        {
+            var orderDb = ordersRepository.GetOrder(email, orderCode);
+            var order = orderDb.ToViewOrder();
+            return order;
+        }
     }
 }

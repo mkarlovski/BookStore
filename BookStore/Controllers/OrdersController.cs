@@ -34,5 +34,14 @@ namespace BookStore.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("retrieve")]
+        public IActionResult Retrieve(string email,string orderCode)
+        {
+            var order = ordersService.GetOrder(email, orderCode);
+            return Ok(order);
+        }
+
+
     }
 }

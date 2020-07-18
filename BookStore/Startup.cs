@@ -38,6 +38,9 @@ namespace BookStore
            
             services.AddTransient<IBookService,BookService>();
             services.AddTransient<IBooksRepository, BooksRepository>();
+            services.AddTransient<IOrdersService, OrdersService>();
+            services.AddTransient<IOrdersRepository, OrdersRepository>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddCors(o => o.AddPolicy("CorsPolicy",builder=> 

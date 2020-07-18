@@ -9,5 +9,6 @@ namespace BookStore.Services.Interfaces
     public interface IOrdersService
     {
         CreateOrderResponse Create(CreateOrderDto order);
+        ViewOrderDto GetOrder(string email, string orderCode);
     }
 }

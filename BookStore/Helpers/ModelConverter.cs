@@ -39,5 +39,27 @@ namespace BookStore.Helpers
 
             };
         }
+
+        public static ViewOrderDto ToViewOrder(this Order order)
+        {
+            return new ViewOrderDto
+            {
+                Name=order.Name,
+                Email=order.Email,
+                Address=order.Address,
+                Phone=order.Phone,
+                BookOrders=order.BookOrders.Select(x=>x.Book.ToViewBookOrder()).ToList(),
+                
+            };
+        }
+
+        public static ViewBookOrderDto ToViewBookOrder(this Book book)
+        {
+            return new ViewBookOrderDto
+            {
+                Title = book.Title,
+                Description = book.Description
+            };
+        }
     }
 }
