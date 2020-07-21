@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.Customizations.Auth;
 using BookStore.Data;
 using BookStore.Repositories;
 using BookStore.Repositories.Interfaces;
@@ -50,6 +51,12 @@ namespace BookStore
                 .AllowAnyMethod()
                 .AllowAnyHeader();         
             }));
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+                options.DefaultChallengeScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+            }).AddApiKeySupport(option => { });   //so ova se registrira ApiKey authentication
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

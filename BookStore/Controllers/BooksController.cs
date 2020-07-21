@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookStore.ModelDtos;
 using BookStore.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,7 +48,8 @@ namespace BookStore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(BookDto bookDto)
+        [Authorize]
+        public IActionResult Create(BookDto bookDto)
         {
             bookService.Create(bookDto);
             return Ok();
@@ -56,6 +58,8 @@ namespace BookStore.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize]
+
         public IActionResult Delete(int id)
         {
             bookService.Delete(id);
@@ -63,6 +67,8 @@ namespace BookStore.Controllers
         }
 
         [HttpPut]
+        [Authorize]
+
         public IActionResult Update(BookDto bookDto)
         {
             bookService.Update(bookDto);
